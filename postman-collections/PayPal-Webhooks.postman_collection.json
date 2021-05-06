@@ -1,0 +1,480 @@
+{
+	"info": {
+		"_postman_id": "54fc6e71-a001-2be0-2715-fe40ce1fbcba",
+		"name": "Webhooks",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Webhooks Event Types",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "{{client_id}}",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "{{secret}}",
+							"type": "string"
+						},
+						{
+							"key": "saveHelperData",
+							"value": true,
+							"type": "boolean"
+						},
+						{
+							"key": "showPassword",
+							"value": false,
+							"type": "boolean"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{access-token}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{host}}/v1/notifications/webhooks-event-types",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"v1",
+						"notifications",
+						"webhooks-event-types"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Webhook",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{access-token}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"url\": \"https://shopaholix.herokuapp.com\",\n  \"event_types\": [\n\t\t{\n\t    \t\"name\": \"PAYMENT.CAPTURE.COMPLETED\"\n\t\t},\n\t\t{\n\t\t    \"name\": \"CHECKOUT.ORDER.APPROVED\"\n\t\t}\n\t]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{endpoint}}/v1/notifications/webhooks",
+					"host": [
+						"{{endpoint}}"
+					],
+					"path": [
+						"v1",
+						"notifications",
+						"webhooks"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Webhook Info",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{access-token}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{endpoint}}/v1/notifications/webhooks/{{webhook-id}}",
+					"host": [
+						"{{endpoint}}"
+					],
+					"path": [
+						"v1",
+						"notifications",
+						"webhooks",
+						"{{webhook-id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Event Types for Webhook",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic QWQzTnpNNmo0NmtNWDRrbG05TlJ1bjhpbEt1bm1uY2p6OWpmUFRpWXA0N2dNdU0wTlIzeWk2bXJDV1Jnb0w0UTNfM2RjSUdscDhvb2haUzk6RUpMYWdMX2FWODRMNklHbzZTOVRIR09CUGtsUHFaU0dhRHdZZkdnN3luakJkVFBnN3NhREFTTmZsMjVqQkxEdFlsdl9nWjl2T3ZHdlQ1cUc="
+					}
+				],
+				"url": {
+					"raw": "{{endpoint}}/v1/notifications/webhooks/{{webhook-id}}/event-types",
+					"host": [
+						"{{endpoint}}"
+					],
+					"path": [
+						"v1",
+						"notifications",
+						"webhooks",
+						"{{webhook-id}}",
+						"event-types"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List All Webhooks",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access-token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{endpoint}}/v1/notifications/webhooks",
+					"host": [
+						"{{endpoint}}"
+					],
+					"path": [
+						"v1",
+						"notifications",
+						"webhooks"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Webhook",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access-token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n    {\n        \"op\": \"replace\",\n        \"path\": \"/event_types\",\n        \"value\": [\n            {\n                \"name\": \"PAYMENT.SALE.REFUNDED\"\n            },\n            {\n                \"name\": \"CHECKOUT.ORDER.APPROVED\"\n            },\n            {\n                \"name\": \"CHECKOUT.ORDER.PROCESSED\"\n            },\n            {\n                \"name\": \"CUSTOMER.ACCOUNT-LIMITATION.ADDED\"\n            },\n            {\n                \"name\": \"CUSTOMER.ACCOUNT-LIMITATION.ESCALATED\"\n            },\n            {\n                \"name\": \"CUSTOMER.ACCOUNT-LIMITATION.LIFTED\"\n            },\n            {\n                \"name\": \"CUSTOMER.ACCOUNT-LIMITATION.UPDATED\"\n            },\n            {\n                \"name\": \"CUSTOMER.MERCHANT-INTEGRATION.CAPABILITY-UPDATED\"\n            },\n            {\n                \"name\": \"CUSTOMER.MERCHANT-INTEGRATION.PRODUCT-SUBSCRIPTION-UPDATED\"\n            },\n            {\n                \"name\": \"CUSTOMER.MERCHANT-INTEGRATION.SELLER-ALREADY-INTEGRATED\"\n            },\n            {\n                \"name\": \"CUSTOMER.MERCHANT-INTEGRATION.SELLER-CONSENT-GRANTED\"\n            },\n            {\n                \"name\": \"CUSTOMER.MERCHANT-INTEGRATION.SELLER-EMAIL-CONFIRMED\"\n            },\n            {\n                \"name\": \"CUSTOMER.MERCHANT-INTEGRATION.SELLER-ONBOARDING-INITIATED\"\n            },\n            {\n                \"name\": \"MERCHANT.ONBOARDING.COMPLETED\"\n            },\n            {\n                \"name\": \"MERCHANT.PARTNER-CONSENT.REVOKED\"\n            },\n            {\n                \"name\": \"PAYMENT.CAPTURE.COMPLETED\"\n            },\n            {\n                \"name\": \"PAYMENT.CAPTURE.DENIED\"\n            },\n            {\n                \"name\": \"PAYMENT.CAPTURE.PENDING\"\n            },\n            {\n                \"name\": \"PAYMENT.CAPTURE.REFUNDED\"\n            },\n            {\n                \"name\": \"PAYMENT.CAPTURE.REVERSED\"\n            },\n            {\n                \"name\": \"PAYMENT.REFERENCED-PAYOUT-ITEM.COMPLETED\"\n            },\n            {\n                \"name\": \"PAYMENT.REFERENCED-PAYOUT-ITEM.FAILED\"\n            },\n            {\n                \"name\": \"CUSTOMER.DISPUTE.CREATED\"\n            },\n            {\n                \"name\": \"CUSTOMER.DISPUTE.RESOLVED\"\n            },\n            {\n                \"name\": \"CUSTOMER.DISPUTE.UPDATED\"\n            },\n            {\n                \"name\": \"RISK.DISPUTE.CREATED\"\n            },\n            {\n                \"name\": \"IDENTITY.AUTHORIZATION-CONSENT.REVOKED\"\n            },\n            {\n                \"name\": \"CHECKOUT.ORDER.COMPLETED\"\n            },\n            {\n                \"name\": \"BILLING.PLAN.CREATED\"\n            },\n            {\n                \"name\": \"BILLING.PLAN.UPDATED\"\n            },\n            {\n                \"name\": \"BILLING.PLAN.ACTIVATED\"\n            },\n            {\n                \"name\": \"BILLING.PLAN.PRICING-CHANGE.ACTIVATED\"\n            },\n            {\n                \"name\": \"BILLING.PLAN.DEACTIVATED\"\n            },\n            {\n                \"name\": \"BILLING.SUBSCRIPTION.CREATED\"\n            },\n            {\n                \"name\": \"BILLING.SUBSCRIPTION.ACTIVATED\"\n            },\n            {\n                \"name\": \"BILLING.SUBSCRIPTION.UPDATED\"\n            },\n            {\n                \"name\": \"BILLING.SUBSCRIPTION.EXPIRED\"\n            },\n            {\n                \"name\": \"BILLING.SUBSCRIPTION.CANCELLED\"\n            },\n            {\n                \"name\": \"BILLING.SUBSCRIPTION.SUSPENDED\"\n            },\n            {\n                \"name\": \"BILLING.SUBSCRIPTION.PAYMENT.FAILED\"\n            },\n            {\n                \"name\": \"CATALOG.PRODUCT.CREATED\"\n            },\n            {\n                \"name\": \"CATALOG.PRODUCT.UPDATED\"\n            },\n            {\n                \"name\": \"PAYMENT.SALE.COMPLETED\"\n            },\n            {\n                \"name\": \"VAULT.CREDIT-CARD.CREATED\"\n            },\n            {\n                \"name\": \"VAULT.CREDIT-CARD.DELETED\"\n            },\n            {\n                \"name\": \"VAULT.CREDIT-CARD.UPDATED\"\n            },\n            {\n                \"name\": \"BILLING_AGREEMENTS.AGREEMENT.CREATED\"\n            },\n            {\n                \"name\": \"BILLING_AGREEMENTS.AGREEMENT.CANCELLED\"\n            }\n        ]\n    }\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{endpoint}}/v1/notifications/webhooks/{{webhook-id}}",
+					"host": [
+						"{{endpoint}}"
+					],
+					"path": [
+						"v1",
+						"notifications",
+						"webhooks",
+						"{{webhook-id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Webhook",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{access-token}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "{{endpoint}}/v1/notifications/webhooks/{{webhook-id}}",
+					"host": [
+						"{{endpoint}}"
+					],
+					"path": [
+						"v1",
+						"notifications",
+						"webhooks",
+						"{{webhook-id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Event Info",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{access-token}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{endpoint}}/v1/notifications/webhooks-events/{{webhook-id}}",
+					"host": [
+						"{{endpoint}}"
+					],
+					"path": [
+						"v1",
+						"notifications",
+						"webhooks-events",
+						"{{webhook-id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search Events",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "{{client_id}}",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "{{secret}}",
+							"type": "string"
+						},
+						{
+							"key": "saveHelperData",
+							"value": true,
+							"type": "boolean"
+						},
+						{
+							"key": "showPassword",
+							"value": false,
+							"type": "boolean"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.sandbox.paypal.com/v1/notifications/webhooks-events",
+					"protocol": "https",
+					"host": [
+						"api",
+						"sandbox",
+						"paypal",
+						"com"
+					],
+					"path": [
+						"v1",
+						"notifications",
+						"webhooks-events"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Resend Event",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "A21AAHpnQoHoJ_qc0nVgUNAC-U-AQnCvxVRluFT6f6WmC2kyKxF4LFi6QdyCVxTrGkR3OSA6Qd8gLW6jRZJGI-iVUnl1qMHcw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{}"
+				},
+				"url": {
+					"raw": "https://api.sandbox.paypal.com/v1/notifications/webhooks-events/WH-1UV54123WD5996948-04V99200B7637921Y/resend",
+					"protocol": "https",
+					"host": [
+						"api",
+						"sandbox",
+						"paypal",
+						"com"
+					],
+					"path": [
+						"v1",
+						"notifications",
+						"webhooks-events",
+						"WH-1UV54123WD5996948-04V99200B7637921Y",
+						"resend"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Simulate Event",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 202\", function () {",
+							"    pm.response.to.have.status(202);",
+							"});",
+							"",
+							"pm.test(\"Event name: \" + pm.iterationData.get(\"event-name\"), () => {});",
+							"",
+							"if(pm.response.code >= 400) {",
+							"    var response = pm.response.json();",
+							"    if(typeof response == \"object\" && typeof response.details == \"object\") {",
+							"        var found = false;",
+							"        response.details.forEach(obj => {",
+							"            if(typeof obj == \"object\" && typeof obj.issue == \"string\") {",
+							"                if(obj.issue == \"Not a valid event name\") {",
+							"                    found = true;",
+							"                    pm.test(\"Error type: invalid event name\", () => {});",
+							"                } else if(obj.issue == \"Value is too long (Maximum {value} characters allowed)\") {",
+							"                    found = true;",
+							"                    pm.test(\"Error type: event name too long\", () => {});",
+							"                } else if(obj.issue == \"Not a valid Resource Type\") {",
+							"                    found = true;",
+							"                    pm.test(\"Error type: invalid resource type\", () => {});",
+							"                }",
+							"            }",
+							"        });",
+							"        if(!found) {",
+							"            pm.test(\"Error type: unknown\", () => {});",
+							"        }",
+							"    }",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access-token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"webhook_id\": \"67S05145MF223710M\",\n    \"event_type\": \"{{event-name}}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.sandbox.paypal.com/v1/notifications/simulate-event",
+					"protocol": "https",
+					"host": [
+						"api",
+						"sandbox",
+						"paypal",
+						"com"
+					],
+					"path": [
+						"v1",
+						"notifications",
+						"simulate-event"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

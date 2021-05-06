@@ -1,0 +1,559 @@
+{
+	"info": {
+		"_postman_id": "d7c6964e-1439-77eb-183c-86b2a81d5c1d",
+		"name": "Payouts API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create Payout - Async Mode Venmo",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"var foundBatchID = false;",
+							"",
+							"if( typeof jsonData !== \"undefined\" ) {",
+							"    if( typeof jsonData.batch_header !== \"undefined\" ) {",
+							"        if( typeof jsonData.batch_header.payout_batch_id === \"string\" ) {",
+							"            var batchID = jsonData.batch_header.payout_batch_id;",
+							"            tests[ \"Batch ID is \" + batchID ] = true;",
+							"            postman.setEnvironmentVariable( \"PayoutsBatchID\", batchID );",
+							"            foundBatchID = true;",
+							"        }",
+							"    }",
+							"}",
+							"",
+							"if( !foundBatchID ) {",
+							"    tests[ \"Found batch ID in response\" ] = false;",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer A21AAEbqVvArkspo0AUvquT52bTEF-N5yqla4sX0qv_IV7pIwekfOqJ_W9j-nJ-_SCWktjnwXxtEi7Y2OlAOqCNLMRcoSq-8A"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"sender_batch_header\": {\n        \"sender_batch_id\": \"20rtyVenmoui4021803\",\n        \"email_subject\": \"You have a Payout!\"\n    },\n    \"items\": [\n        {\n            \"recipient_type\": \"PHONE\",\n            \"amount\": {\n                \"value\": \"1.0\",\n                \"currency\": \"USD\"\n            },\n            \"note\": \"Thanks for your patronage!\",\n            \"sender_item_id\": \"201403140001\",\n            \"receiver\": \"999-999-9999\",\n    \t\t\"recipient_wallet\": \"Venmo\"\n        }\n    ]\n}"
+				},
+				"url": {
+					"raw": "https://api.sandbox.paypal.com/v1/payments/payouts",
+					"protocol": "https",
+					"host": [
+						"api",
+						"sandbox",
+						"paypal",
+						"com"
+					],
+					"path": [
+						"v1",
+						"payments",
+						"payouts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Payout - Async Mode Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"var foundBatchID = false;",
+							"",
+							"if( typeof jsonData !== \"undefined\" ) {",
+							"    if( typeof jsonData.batch_header !== \"undefined\" ) {",
+							"        if( typeof jsonData.batch_header.payout_batch_id === \"string\" ) {",
+							"            var batchID = jsonData.batch_header.payout_batch_id;",
+							"            tests[ \"Batch ID is \" + batchID ] = true;",
+							"            postman.setEnvironmentVariable( \"PayoutsBatchID\", batchID );",
+							"            foundBatchID = true;",
+							"        }",
+							"    }",
+							"}",
+							"",
+							"if( !foundBatchID ) {",
+							"    tests[ \"Found batch ID in response\" ] = false;",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer A21AAE_3HksqqDyOoJt4U3WBwShBpK5POWVEunjtwc1H0UWnRpf1dKiCmSIKDIaPbkufv5DeNhCmVGcKbSBt1pd7lgoy21mNw"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"sender_batch_header\": {\n        \"sender_batch_id\": \"201402189345678703\",\n        \"email_subject\": \"You have a Payout!\",\n        \"recipient_type\": \"EMAIL\"\n    },\n    \"items\": [\n        {\n            \"recipient_type\": \"EMAIL\",\n            \"amount\": {\n                \"value\": \"1\",\n                \"currency\": \"AUD\"\n            },\n            \"note\": \"Thanks for your patronage!\",\n            \"sender_item_id\": \"201403140001\",\n            \"receiver\": \"sb-f3jze476720@business.example.com\"\n        }\n    ]\n}"
+				},
+				"url": {
+					"raw": "https://api.sandbox.paypal.com/v1/payments/payouts",
+					"protocol": "https",
+					"host": [
+						"api",
+						"sandbox",
+						"paypal",
+						"com"
+					],
+					"path": [
+						"v1",
+						"payments",
+						"payouts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Payout - Sync Mode (Deprecated)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"var foundBatchID = false;",
+							"var foundItemID = false;",
+							"",
+							"if( typeof jsonData !== \"undefined\" ) {",
+							"    if( typeof jsonData.batch_header !== \"undefined\" ) {",
+							"        if( typeof jsonData.batch_header.payout_batch_id === \"string\" ) {",
+							"            var batchID = jsonData.batch_header.payout_batch_id;",
+							"            tests[ \"Batch ID is \" + batchID ] = true;",
+							"            postman.setEnvironmentVariable( \"PayoutsBatchID\", batchID );",
+							"            foundBatchID = true;",
+							"        }",
+							"    }",
+							"    if( typeof jsonData.items === \"object\" ) {",
+							"        if( typeof jsonData.items[0] !== \"undefined\" ) {",
+							"            if( typeof jsonData.items[0].payout_item_id !== \"undefined\" ) {",
+							"                var itemID = jsonData.items[0].payout_item_id;",
+							"                tests[ \"Payout item ID is \" + itemID ] = true;",
+							"                postman.setEnvironmentVariable( \"PayoutsItemID\", itemID );",
+							"                foundItemID = true;",
+							"            }",
+							"        }",
+							"    }",
+							"}",
+							"",
+							"if( !foundBatchID ) {",
+							"    tests[ \"Found batch ID in response\" ] = false;",
+							"}",
+							"",
+							"if( !foundItemID ) {",
+							"    tests[ \"Found item ID in response\" ] = false;",
+							"}"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer A101.9ieZwuEFccZpDfLhb83HcrZm3mlPE8TUBoYyQj26yxzBNVwz8u1aVrJxCqdQIgn2.bBT08apDgWQsKy_QDpOGcLmd66a"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"sender_batch_header\": {\n        \"sender_batch_id\": \"2014021804\",\n        \"email_subject\": \"You have a Payout!\",\n        \"recipient_type\": \"EMAIL\"\n    },\n    \"items\": [\n        {\n            \"recipient_type\": \"EMAIL\",\n            \"amount\": {\n                \"value\": \"1.0\",\n                \"currency\": \"USD\"\n            },\n            \"note\": \"Thanks for your patronage!\",\n            \"sender_item_id\": \"201403140001\",\n            \"receiver\": \"shirt-supplier-one@mail.com\"\n        }\n    ]\n}"
+				},
+				"url": {
+					"raw": "https://api.sandbox.paypal.com/v1/payments/payouts?sync_mode=true",
+					"protocol": "https",
+					"host": [
+						"api",
+						"sandbox",
+						"paypal",
+						"com"
+					],
+					"path": [
+						"v1",
+						"payments",
+						"payouts"
+					],
+					"query": [
+						{
+							"key": "sync_mode",
+							"value": "true"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Batch Status",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer A101.9ieZwuEFccZpDfLhb83HcrZm3mlPE8TUBoYyQj26yxzBNVwz8u1aVrJxCqdQIgn2.bBT08apDgWQsKy_QDpOGcLmd66a"
+					}
+				],
+				"url": {
+					"raw": "https://api.sandbox.paypal.com/v1/payments/payouts/{{PayoutsBatchID}}",
+					"protocol": "https",
+					"host": [
+						"api",
+						"sandbox",
+						"paypal",
+						"com"
+					],
+					"path": [
+						"v1",
+						"payments",
+						"payouts",
+						"{{PayoutsBatchID}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Payout Item Status",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer A101.9ieZwuEFccZpDfLhb83HcrZm3mlPE8TUBoYyQj26yxzBNVwz8u1aVrJxCqdQIgn2.bBT08apDgWQsKy_QDpOGcLmd66a"
+					}
+				],
+				"url": {
+					"raw": "https://api.sandbox.paypal.com/v1/payments/payouts-item/{{PayoutsItemID}}",
+					"protocol": "https",
+					"host": [
+						"api",
+						"sandbox",
+						"paypal",
+						"com"
+					],
+					"path": [
+						"v1",
+						"payments",
+						"payouts-item",
+						"{{PayoutsItemID}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cancel Unclaimed Payout",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer A101.9ieZwuEFccZpDfLhb83HcrZm3mlPE8TUBoYyQj26yxzBNVwz8u1aVrJxCqdQIgn2.bBT08apDgWQsKy_QDpOGcLmd66a"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{}"
+				},
+				"url": {
+					"raw": "https://api.sandbox.paypal.com/v1/payments/payouts-item/{{PayoutsItemID}}/cancel",
+					"protocol": "https",
+					"host": [
+						"api",
+						"sandbox",
+						"paypal",
+						"com"
+					],
+					"path": [
+						"v1",
+						"payments",
+						"payouts-item",
+						"{{PayoutsItemID}}",
+						"cancel"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ToddTest Payouts",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"var foundBatchID = false;",
+							"var foundItemID = false;",
+							"",
+							"if( typeof jsonData !== \"undefined\" ) {",
+							"    if( typeof jsonData.batch_header !== \"undefined\" ) {",
+							"        if( typeof jsonData.batch_header.payout_batch_id === \"string\" ) {",
+							"            var batchID = jsonData.batch_header.payout_batch_id;",
+							"            tests[ \"Batch ID is \" + batchID ] = true;",
+							"            postman.setEnvironmentVariable( \"PayoutsBatchID\", batchID );",
+							"            foundBatchID = true;",
+							"        }",
+							"    }",
+							"    if( typeof jsonData.items === \"object\" ) {",
+							"        if( typeof jsonData.items[0] !== \"undefined\" ) {",
+							"            if( typeof jsonData.items[0].payout_item_id !== \"undefined\" ) {",
+							"                var itemID = jsonData.items[0].payout_item_id;",
+							"                tests[ \"Payout item ID is \" + itemID ] = true;",
+							"                postman.setEnvironmentVariable( \"PayoutsItemID\", itemID );",
+							"                foundItemID = true;",
+							"            }",
+							"        }",
+							"    }",
+							"}",
+							"",
+							"if( !foundBatchID ) {",
+							"    tests[ \"Found batch ID in response\" ] = false;",
+							"}",
+							"",
+							"if( !foundItemID ) {",
+							"    tests[ \"Found item ID in response\" ] = false;",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "accessToken",
+							"value": "A21AAHb7YsZtxTQPYLYkF_HRzqdbA9WaZplmmY2Lsx_0ypEwSgO_GIokbTTueTtIZ3ZA6yNjHJUu8WLRr98iIaauMLyhZHEyg",
+							"type": "string"
+						},
+						{
+							"key": "tokenType",
+							"value": "Bearer",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "PayPal-Partner-Attribution-Id",
+						"value": "ToddTest_SP"
+					},
+					{
+						"key": "Paypal-Auth-Assertion",
+						"value": "eyJhbGciOiJub25lIn0=.eyJlbWFpbCI6InRlc3RpbmdwYXlvdXRzNEBwYXlwYWwuY29tCiIsImlzcyI6IkFjRGk5VUNhZ1Y0WTJPTUFOenUzOGhoTThWUmxSbUx2RDZXNS1xWmgxZ2FWeGdQdjZEZXlyQ3ZXTWZkcGJyTklocVpIeHZNZGszZ3ByNW9zIn0=.",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"sender_batch_header\": {\n        \"sender_batch_id\": \"20140218041\",\n        \"email_subject\": \"You have a Payout!\",\n        \"recipient_type\": \"EMAIL\"\n    },\n    \"items\": [\n        {\n            \"recipient_type\": \"EMAIL\",\n            \"amount\": {\n                \"value\": \".051\",\n                \"currency\": \"USD\"\n            },\n            \"note\": \"Thanks for your patronage!\",\n            \"sender_item_id\": \"201403140001\",\n            \"receiver\": \"th_072313_biz@paypal.com\"\n        }\n    ]\n}"
+				},
+				"url": {
+					"raw": "https://api.sandbox.paypal.com/v1/payments/payouts",
+					"protocol": "https",
+					"host": [
+						"api",
+						"sandbox",
+						"paypal",
+						"com"
+					],
+					"path": [
+						"v1",
+						"payments",
+						"payouts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Payout - Async Mode Venmo",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"var foundBatchID = false;",
+							"",
+							"if( typeof jsonData !== \"undefined\" ) {",
+							"    if( typeof jsonData.batch_header !== \"undefined\" ) {",
+							"        if( typeof jsonData.batch_header.payout_batch_id === \"string\" ) {",
+							"            var batchID = jsonData.batch_header.payout_batch_id;",
+							"            tests[ \"Batch ID is \" + batchID ] = true;",
+							"            postman.setEnvironmentVariable( \"PayoutsBatchID\", batchID );",
+							"            foundBatchID = true;",
+							"        }",
+							"    }",
+							"}",
+							"",
+							"if( !foundBatchID ) {",
+							"    tests[ \"Found batch ID in response\" ] = false;",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer A21AAE_3HksqqDyOoJt4U3WBwShBpK5POWVEunjtwc1H0UWnRpf1dKiCmSIKDIaPbkufv5DeNhCmVGcKbSBt1pd7lgoy21mNw"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"sender_batch_header\": {\n        \"sender_batch_id\": \"20rtyVenmoui4021803\",\n        \"email_subject\": \"You have a Payout!\"\n    },\n    \"items\": [\n        {\n            \"recipient_type\": \"PHONE\",\n            \"amount\": {\n                \"value\": \"1.0\",\n                \"currency\": \"USD\"\n            },\n            \"note\": \"Thanks for your patronage!\",\n            \"sender_item_id\": \"201403140001\",\n            \"receiver\": \"999-999-9999\",\n    \t\t\"recipient_wallet\": \"Venmo\"\n        }\n    ]\n}"
+				},
+				"url": {
+					"raw": "https://api.sandbox.paypal.com/v1/payments/payouts",
+					"protocol": "https",
+					"host": [
+						"api",
+						"sandbox",
+						"paypal",
+						"com"
+					],
+					"path": [
+						"v1",
+						"payments",
+						"payouts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get AccessToken SBX SR",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"if(responseCode.code == 200) {",
+							"    var data = JSON.parse(responseBody);",
+							"    postman.setEnvironmentVariable(\"facilitator_access_token\", data.access_token);",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "ELzrC7bDK_edGz1rstnX2hco-OsNl_Lve6EMVIe-1-DIXLTg_XW5x3gpKOiqOf8YkzicMAQ-AmmB1iJj",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "AYUBtgZKY7ZkurEAj2BGXJGtXo1Nch_eQQ2vBgL2NoqaKdmVYp7X6FgnHww2BuHuGBwDjhr-7TK5Tac6",
+							"type": "string"
+						},
+						{
+							"key": "saveHelperData",
+							"value": true,
+							"type": "boolean"
+						},
+						{
+							"key": "showPassword",
+							"value": false,
+							"type": "boolean"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "grant_type=client_credentials&response_type=token&return_authn_schemes=true"
+				},
+				"url": {
+					"raw": "https://api.sandbox.paypal.com/v1/oauth2/token",
+					"protocol": "https",
+					"host": [
+						"api",
+						"sandbox",
+						"paypal",
+						"com"
+					],
+					"path": [
+						"v1",
+						"oauth2",
+						"token"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

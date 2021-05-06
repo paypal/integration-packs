@@ -1,0 +1,216 @@
+{
+	"info": {
+		"_postman_id": "0410ac42-14de-6868-efff-fd69d6a3e76f",
+		"name": "Braintree XML API",
+		"description": "Sample XML calls",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Generate Client Token",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "9wt57tyh89t8vvny",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "c75cf7300e2213299e04a2c17be75630",
+							"type": "string"
+						},
+						{
+							"key": "saveHelperData",
+							"value": true,
+							"type": "boolean"
+						},
+						{
+							"key": "showPassword",
+							"value": false,
+							"type": "boolean"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-ApiVersion",
+						"value": "4"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/xml"
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic OXd0NTd0eWg4OXQ4dnZueTpjNzVjZjczMDBlMjIxMzI5OWUwNGEyYzE3YmU3NTYzMA=="
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<client_token>\n<version type=\"integer\">2</version>\n<merchant-account-id>fds7f8s7fefw98fue8f</merchant-account-id> \n<options>\n\n</options>\n</client_token>"
+				},
+				"url": {
+					"raw": "https://api.sandbox.braintreegateway.com/merchants/9h7d972w75t2qwsn/client_token",
+					"protocol": "https",
+					"host": [
+						"api",
+						"sandbox",
+						"braintreegateway",
+						"com"
+					],
+					"path": [
+						"merchants",
+						"9h7d972w75t2qwsn",
+						"client_token"
+					]
+				},
+				"description": "This is for the front end token if needed"
+			},
+			"response": []
+		},
+		{
+			"name": "XML Sale trans",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "9wt57tyh89t8vvny",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "c75cf7300e2213299e04a2c17be75630",
+							"type": "string"
+						},
+						{
+							"key": "saveHelperData",
+							"value": true,
+							"type": "boolean"
+						},
+						{
+							"key": "showPassword",
+							"value": false,
+							"type": "boolean"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-ApiVersion",
+						"value": "4"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/xml"
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic OXd0NTd0eWg4OXQ4dnZueTpjNzVjZjczMDBlMjIxMzI5OWUwNGEyYzE3YmU3NTYzMA=="
+					},
+					{
+						"key": "User-Agent",
+						"value": "API Demo",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<transaction>\r\n         <type>sale</type>\r\n         <amount>5</amount>\r\n        <cardholder_name>John Doe</cardholder_name>\r\n\t\t<number>4111111111111111</number>\r\n\t\t<cvv>123</cvv>\r\n\t\t<expiration-date>12/2019</expiration-date>\r\n\t\t\r\n\t\t\t\r\n\t\r\n</transaction>"
+				},
+				"url": {
+					"raw": "https://api.sandbox.braintreegateway.com/merchants/9h7d972w75t2qwsn/transactions",
+					"protocol": "https",
+					"host": [
+						"api",
+						"sandbox",
+						"braintreegateway",
+						"com"
+					],
+					"path": [
+						"merchants",
+						"9h7d972w75t2qwsn",
+						"transactions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "XML customer create",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "c11324cef8651916dcc5bde7c08f0e63",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "q3vq4cyp7g4ywmdp",
+							"type": "string"
+						},
+						{
+							"key": "saveHelperData",
+							"value": true,
+							"type": "boolean"
+						},
+						{
+							"key": "showPassword",
+							"value": false,
+							"type": "boolean"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-ApiVersion",
+						"value": "4"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/xml"
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic OXd0NTd0eWg4OXQ4dnZueTpjNzVjZjczMDBlMjIxMzI5OWUwNGEyYzE3YmU3NTYzMA=="
+					},
+					{
+						"key": "User-Agent",
+						"value": "API Demo",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<customer>\n           <payment-method-nonce>77324391-8bde-0678-7125-4463ee3d70f6</payment-method-nonce>\n           <first-name>Mike</first-name>\n           <last-name>Testerson</last-name>\n           <email>test@test.com</email>\n           <credit-card>\n             <billing-address>\n               <first-name>Mike</first-name>\n               <last-name>Testerson</last-name>\n               <street-address>1234 Main St</street-address>\n               <locality>Chicago</locality>\n               <region>IL</region>\n               <postal-code>12345</postal-code>\n               <country-code-alpha2>US</country-code-alpha2>\n               <country-name>United States of America</country-name>\n             </billing-address>\n             <cardholder-name>Mike Testerson</cardholder-name>\n             <options>\n               <make-default>true</make-default>\n             </options>\n            </credit-card>\n          </customer>"
+				},
+				"url": {
+					"raw": "https://api.sandbox.braintreegateway.com/merchants/4hdwhp2rgkvhqhzh/customers",
+					"protocol": "https",
+					"host": [
+						"api",
+						"sandbox",
+						"braintreegateway",
+						"com"
+					],
+					"path": [
+						"merchants",
+						"4hdwhp2rgkvhqhzh",
+						"customers"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
