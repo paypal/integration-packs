@@ -10,7 +10,6 @@ Card Form Designs:
 
 [Simple](https://codepen.io/braintree/pen/ZWPpPG) | [Material](https://codepen.io/braintree/pen/mPgdPN) | [Minimal](https://codepen.io/braintree/pen/EKJVXp) | [Raw](https://codepen.io/braintree/pen/grQJQM) |  [3D Transform](https://codepen.io/braintree/pen/oLxqjd) | [Bootstrap v4](https://codepen.io/braintree/pen/zeamxM) | [Expiration Date Drop Down](https://codepen.io/braintree/pen/QGrXav)
 
-[3DS with Hosted Fields](https://codepen.io/braintree/pen/ezvymm)
 
 Other Payment Methods:
 
@@ -27,6 +26,10 @@ Hosted Field Examples in Developer Docs:
 ## Braintree Drop-in UI
 
 [Card]() | [Card + PayPal]() | [Card + PayPal + Google Pay]()
+
+## Braintree 3DS
+[Drop in] (https://codepen.io/vimalnath53/pen/zYNPQzZ) | [Hosted Fields] (https://codepen.io/vimalnath53/pen/vYxyKXL) | [Hosted Fields(Vault Flow)] (https://codepen.io/vimalnath53/pen/WNpRGey) | [Recollecting CVV in Vault Flow] (https://codepen.io/vimalnath53/pen/YzZNaWm) | [Data Only 3DS Flow] (https://codepen.io/vimalnath53/pen/KKWaoZZ)
+
 
 ## References
 
