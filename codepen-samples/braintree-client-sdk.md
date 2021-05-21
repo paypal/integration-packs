@@ -28,7 +28,7 @@ Hosted Field Examples in Developer Docs:
 [Card]() | [Card + PayPal]() | [Card + PayPal + Google Pay]()
 
 ## Braintree 3DS
-[Drop in] (https://codepen.io/vimalnath53/pen/zYNPQzZ) | [Hosted Fields] (https://codepen.io/vimalnath53/pen/vYxyKXL) | [Hosted Fields(Vault Flow)] (https://codepen.io/vimalnath53/pen/WNpRGey) | [Recollecting CVV in Vault Flow] (https://codepen.io/vimalnath53/pen/YzZNaWm) | [Data Only 3DS Flow] (https://codepen.io/vimalnath53/pen/KKWaoZZ)
+[Drop in](https://codepen.io/vimalnath53/pen/zYNPQzZ) | [Hosted Fields](https://codepen.io/vimalnath53/pen/vYxyKXL) | [Hosted Fields(Vault Flow)](https://codepen.io/vimalnath53/pen/WNpRGey) | [Recollecting CVV in Vault Flow](https://codepen.io/vimalnath53/pen/YzZNaWm) | [Data Only 3DS Flow](https://codepen.io/vimalnath53/pen/KKWaoZZ)
 
 
 ## References
