@@ -37,7 +37,7 @@ Postman collections for sending API requests to PayPal services such as Braintre
 ### Test Card Numbers
 As a quick reference, any of the test card numbers below can be used for either PayPal wallet flow or Braintree card flow.  Please note that test card numbers for Braintree might not work on PayPal wallet and vice versa.
 
-####PayPal Wallet
+#### PayPal Wallet
 |Test Value|Card Type|
 |----------|---------|
 |4239538668121621|Visa|
@@ -49,7 +49,7 @@ As a quick reference, any of the test card numbers below can be used for either 
 
 [Generate Test Card Numbers](https://developer.paypal.com/developer/creditCardGenerator/)
 
-####Braintree
+#### Braintree
 
 |Test Value|Card Type|
 |----------|---------|
