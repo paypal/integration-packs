@@ -1,6 +1,6 @@
 # PayPal Integration Packs
 
-This a collection of sample references for anyone who wishes to integrate to PayPal services.
+This repository is aimed at developers, and is a collection of working demos of various integrations of PayPal services.
 
 
 ## CodePen Samples
@@ -30,3 +30,36 @@ Postman collections for sending API requests to PayPal services such as Braintre
 * [PayPal Payouts API](https://github.com/paypal/integration-packs/blob/main/postman-collections/PayPal-Payouts-API.postman_collection.json)
 
 * [PayPal Webhooks API](https://github.com/paypal/integration-packs/blob/main/postman-collections/PayPal-Webhooks.postman_collection.json)
+
+## PopupBridge Samples
+
+## References
+### Test Card Numbers
+As a quick reference, any of the test card numbers below can be used for either PayPal wallet flow or Braintree card flow.  Please note that test card numbers for Braintree might not work on PayPal wallet and vice versa.
+
+####PayPal Wallet
+|Test Value|Card Type|
+|----------|---------|
+|4239538668121621|Visa|
+|5125763927083297|Mastercard|
+|349313082270122|American Express|
+|6011474915859384|Discover|
+|5038270606265696|Maestro|
+|3568621173513335|JCB|
+
+[Generate Test Card Numbers](https://developer.paypal.com/developer/creditCardGenerator/)
+
+####Braintree
+
+|Test Value|Card Type|
+|----------|---------|
+|378282246310005|American Express|
+|36259600000004|Diners Club (processed as Discover)|
+|6011000991300009|Discover|
+|3530111333300000|JCB|
+|6304000000000000|Maestro|
+|5555555555554444|Mastercard|
+|4005519200000004|Visa|
+
+[More Test Card Numbers](https://developer.paypal.com/braintree/docs/reference/general/testing#credit-card-numbers)
+
