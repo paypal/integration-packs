@@ -1,0 +1,35 @@
+{
+  "name": "cordova-plugin-popup-bridge",
+  "version": "2.0.4-dev",
+  "description": "Cordova Braintree PopupBridge",
+  "cordova": {
+    "id": "cordova-plugin-popup-bridge",
+    "platforms": [
+      "android"
+    ]
+  },
+  "dependencies": {
+    "rxjs": "6.6.7",
+    "ionicons": "5.5.2",
+    "zone.js": "0.11.4",
+    "tslib": "2.3.0"
+  },
+  "devDependencies": {
+    "rxjs": "6.6.7",
+    "zone.js": "0.11.4",
+    "ionicons": "5.5.2",
+    "tslib": "2.3.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/paypal/integration-packs/tree/main/popupbridge-samples/cordova-plugin-popup-bridge"
+  },
+  "keywords": [
+    "cordova",
+    "device",
+    "ecosystem:cordova",
+    "cordova-android"
+  ],
+  "author": "",
+  "license": "Apache 2.0"
+}
