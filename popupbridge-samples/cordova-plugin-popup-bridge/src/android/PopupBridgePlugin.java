@@ -30,15 +30,16 @@ import org.json.JSONObject;
 
 import com.braintreepayments.popupbridge.PopupBridge;
 import android.provider.Settings;
+import android.webkit.WebView;
 
-public class PopupBridge extends CordovaPlugin {
+public class PopupBridgePlugin extends CordovaPlugin {
     public static final String TAG = "PopupBridge";
     private PopupBridge mPopupBridge;
     
     /**
      * Constructor.
      */
-    public PopupBridge() {
+    public PopupBridgePlugin() {
     }
 
     /**
@@ -51,7 +52,7 @@ public class PopupBridge extends CordovaPlugin {
     public void initialize(CordovaInterface cordova, CordovaWebView webView) {
         super.initialize(cordova, webView);
 
-        mPopupBridge = PopupBridge.newInstance(cordova.getActivity(), webView);
+        mPopupBridge = PopupBridge.newInstance(cordova.getActivity(), (WebView) webView.getEngine().getView());
     }
 
     /**

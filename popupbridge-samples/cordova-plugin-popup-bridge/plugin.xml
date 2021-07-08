@@ -21,14 +21,14 @@
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
     xmlns:rim="http://www.blackberry.com/ns/widgets"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    id="cordova-plugin-device"
-    version="2.0.4-dev">
-    <name>Device</name>
-    <description>Cordova Device Plugin</description>
+    id="cordova-plugin-popup-bridge"
+    version="1.0.0">
+    <name>PopupBridge Plugin</name>
+    <description>Cordova Braintree PopupBridge</description>
     <license>Apache 2.0</license>
     <keywords>cordova,device</keywords>
-    <repo>https://git-wip-us.apache.org/repos/asf/cordova-plugin-device.git</repo>
-    <issue>https://issues.apache.org/jira/browse/CB/component/12320648</issue>
+    <repo>https://github.com/paypal/integration-packs/tree/main/popupbridge-samples/cordova-plugin-popup-bridge</repo>
+    <issue>https://github.com/paypal/integration-packs/issues</issue>
 
     <js-module src="www/popup-bridge.js" name="popup-bridge">
         <clobbers target="popup-bridge" />
@@ -38,13 +38,14 @@
     <platform name="android">
         <config-file target="res/xml/config.xml" parent="/*">
             <feature name="PopupBridge" >
-                <param name="android-package" value="org.apache.cordova.popupbridge.PopupBridge"/>
+                <param name="android-package" value="org.apache.cordova.popupbridge.PopupBridgePlugin"/>
+                <param name="onload" value="true" />
             </feature>
         </config-file>
 
-        <source-file src="src/android/PopupBridge.java" target-dir="src/org/apache/cordova/popupbridge" />
+        <source-file src="src/android/PopupBridgePlugin.java" target-dir="src/org/apache/cordova/popupbridge" />
         <config-file target="config.xml" parent="/*">
-            <preference name="android-minSdkVersion" value="16" tools:overrideLibrary="com.braintreepayments.popupbridge" />
+            <preference name="android-minSdkVersion" value="19" tools:overrideLibrary="com.braintreepayments.popupbridge" />
         </config-file>
 
         <framework src="com.braintreepayments:popup-bridge:1.+" />
