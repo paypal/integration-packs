@@ -37,7 +37,7 @@ Hosted Field Examples in Developer Docs:
 
 Braintree helps you offer the leading payment methods such as PayPal, Apple Pay and Google Pay to your customers without complicating your checkout.
 
-[PayPal](https://codepen.io/the_tfulton/pen/wvveGKZ) | Apple Pay | [Google Pay](https://codepen.io/the_tfulton/pen/abvpeWV) | [Local Payment Methods](https://codepen.io/the_tfulton/pen/RwwERNQ) | [PayPal Checkout.js (legacy)](https://codepen.io/the_tfulton/pen/PoomRmb)
+[PayPal](https://codepen.io/ksuralta/pen/qBmPYYd) | Apple Pay | [Google Pay](https://codepen.io/the_tfulton/pen/abvpeWV) | [Local Payment Methods](https://codepen.io/the_tfulton/pen/RwwERNQ) | [PayPal Checkout.js (legacy)](https://codepen.io/the_tfulton/pen/PoomRmb)
 
 [PayPal Change Payment Method (Edit FI)](https://codepen.io/ksuralta/pen/jObBENN)
 
