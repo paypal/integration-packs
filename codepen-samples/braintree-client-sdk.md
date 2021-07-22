@@ -4,7 +4,7 @@
 
 Braintree Drop-in UI is a complete, ready-made payment UI that offers a quick and easy way to securely accept payments. The UI includes a card entry form and, if enabled, PayPal, Google Pay, and Venmo buttons. When a user successfully completes the UI, your client code obtains a payment method nonce for use on your server.
 
-[Card]() | [Card + PayPal]() | [Card + PayPal + Google Pay]()
+Card | Card + PayPal | Card + PayPal + Google Pay
 
 [3DS](https://codepen.io/vimalnath53/pen/zYNPQzZ)
 
@@ -37,7 +37,7 @@ Hosted Field Examples in Developer Docs:
 
 Braintree helps you offer the leading payment methods such as PayPal, Apple Pay and Google Pay to your customers without complicating your checkout.
 
-[PayPal](https://codepen.io/the_tfulton/pen/wvveGKZ) | [Apple Pay]() | [Google Pay](https://codepen.io/the_tfulton/pen/abvpeWV) | [Local Payment Methods](https://codepen.io/the_tfulton/pen/RwwERNQ) | [PayPal Checkout.js (legacy)](https://codepen.io/the_tfulton/pen/PoomRmb)
+[PayPal](https://codepen.io/the_tfulton/pen/wvveGKZ) | Apple Pay | [Google Pay](https://codepen.io/the_tfulton/pen/abvpeWV) | [Local Payment Methods](https://codepen.io/the_tfulton/pen/RwwERNQ) | [PayPal Checkout.js (legacy)](https://codepen.io/the_tfulton/pen/PoomRmb)
 
 [PayPal Change Payment Method (Edit FI)](https://codepen.io/ksuralta/pen/jObBENN)
 
