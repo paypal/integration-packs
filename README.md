@@ -2,6 +2,10 @@
 
 This repository is aimed at developers, and is a collection of working demos of various integrations of PayPal services.
 
+### Disclaimer
+Please note that these demos are developed by our global engineering teams on a volunteer basis to help merchants to understand our client SDK integration. These are NOT our official sample code.  Please feel free to use them as a reference and develop your own client component that is suitable to your system and business logic.
+
+
 
 ## CodePen Samples
 
